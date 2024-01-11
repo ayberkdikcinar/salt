@@ -1,12 +1,11 @@
 install_nginx:
   pkg.installed:
     - pkgs:
-      - epel-release
       - nginx
 
 index_html:
   file.managed:
-    - name: /var/www/html/index.html
+    - name: /usr/share/nginx/html/index.html
     - user: nginx
     - group: nginx
     - mode: 644  
