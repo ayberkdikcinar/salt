@@ -3,7 +3,7 @@ install_apache1:
     - pkgs:
       - httpd
 
-index_html:
+index_html_dev:
   file.managed:
     - name: /var/www/html/index.html
     - user: apache

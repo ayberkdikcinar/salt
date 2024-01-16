@@ -1,4 +1,4 @@
 qa:
   'web*':
     - users
-    - nginx    
+    - nginx
