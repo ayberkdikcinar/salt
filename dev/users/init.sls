@@ -1,17 +1,16 @@
-user_fred:
+{%for user,data in pillar.get('admin_users',{}).items()%}
+user_{{user}}:
   user.present:
-    - name: fred.jones
-    - fullname: Fred Jones DEV
-    - shell: /bin/zsh
-    - home: /home/fred.jones
-    - groups:
-      - wheel
+    - name: {{data['name']}}
+    - fullname: {{data['fullname']}}
+    - shell: {{data['shell']}}
+    - home: {{data['home']}}
+    - groups: {{data['groups']}}
+user_{{user}}_key:
+  ssh.auth.present:
+    - name: {{data['ssh_key']}}
+    - user: {{user}}
 
-
-fred_ssh_key:
-  ssh_auth.present:
-    - name: fred.jones
-    - user: fred.jones
-    - source: salt://users/keys/fred.jones_ssh.pub
+{%endfor%}
 
 
