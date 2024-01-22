@@ -7,10 +7,9 @@ user_{{user}}:
     - home: {{data['home']}}
     - groups: {{data['groups']}}
 user_{{user}}_key:
-  ssh.auth.present:
+  ssh_auth.present:
     - name: {{data['ssh_key']}}
-    - user: {{user}}
-
+    - user: {{data['name']}} 
 {%endfor%}
 
 
