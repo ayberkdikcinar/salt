@@ -4,3 +4,4 @@ dev:
     - postgresql #postgresql folder should be created with some contents by user fred.jones.
   'web*':
     - apache
+    - users
