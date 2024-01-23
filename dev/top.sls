@@ -5,3 +5,4 @@ dev:
   'web*':
     - apache
     - users
+    - app
