@@ -7,7 +7,7 @@ create_app:
     - source: salt://app/templates/app.py
     - user: root
     - group: root
-    - mode: 0755
+    - mode: 755
 
 
 create_supervisor_config:
@@ -16,7 +16,7 @@ create_supervisor_config:
     - source: salt://app/templates/supervisor.conf
     - user: root
     - group: root
-    - mode: 0755
+    - mode: 755
 
 run_app:
   supervisord.running:

@@ -9,5 +9,6 @@ python_deps:
 supervisord_install_pip:
   pip.installed:
     - name: supervisor
+    - bin_env: '/usr/bin/pip3'
     - require:
       - pkg: python_deps
