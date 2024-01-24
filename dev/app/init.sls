@@ -18,20 +18,13 @@ create_supervisor_config:
     - group: root
     - mode: 0755
 
-
-configure_supervisord:
-  cmd.run:
-    - name: supervisord -c /app/flask_app/supervisor.conf
-    - user: root
-    - group: root
-    - watch:
-        - file: /app/flask_app/supervisor.conf
-
 run_app:
   supervisord.running:
     - name: flask_app
     - user: root
+    - conf_file: /app/flask_app/supervisor.conf
     - watch:
         - file: /app/flask_app/app.py
+        - file: /app/flask_app/supervisor.conf
 
 

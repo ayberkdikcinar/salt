@@ -1,23 +1,13 @@
 python_deps:
   pkg.installed:
     - pkgs:
-      - python-setuptools
-      - python-pip
+      - python3-setuptools
+      - python3-pip
+    - upgrade: True
 
-upgrade_deps:
-  pkg.installed:
-    - pkgs:
-      - pip
-      - setuptools
-    - upgrade: true
-    - require:
-        - sls: python_deps
-     
+
 supervisord_install_pip:
   pip.installed:
-    - pkgs:
-      - supervisor
-      - Distribute
-    - force_reinstall: true
-    - upgrade: true
-
+    - name: supervisor
+    - require:
+      - pkg: python_deps
